@@ -1,0 +1,32 @@
+body {
+    height: auto;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row; /* Cambiado a row para que los elementos estén uno al lado del otro */
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0; /* Color de fondo del cuerpo */
+}
+
+button {
+    font-size: 24px; /* Tamaño del texto del botón */
+    padding: 15px 30px; /* Relleno interno del botón (ajusta según sea necesario) */
+    background-color: #4caf50; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: none; /* Elimina el borde del botón */
+    border-radius: 10px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón sobre el botón */
+    transition: background-color 0.3s; /* Transición suave del color de fondo */
+    margin-right: 10px; /* Agregado margen derecho para separar los botones horizontalmente */
+}
+
+button:hover {
+    background-color: #45a049; /* Cambia el color de fondo al pasar el ratón sobre el botón */
+}
+
+#pausarBtn {
+    background-color: #f44336; /* Cambiado el color de fondo para distinguir el botón de pausar */
+}

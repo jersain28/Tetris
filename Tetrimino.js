@@ -25,17 +25,20 @@ class Tetrimino {
   }
 
   moverAbajo() {
-    this.posición.y++;
-    if (this.movimientoErroneo) {
-      this.moverArriba();
-      if (tetrimino == this) {
-        tablero.almacenarMino = this;
-        tetrimino = new Tetrimino();
-      }
-      return false
+    if (!juegoEnPausa) {
+        this.posición.y++;
+        if (this.movimientoErroneo) {
+            this.moverArriba();
+            if (tetrimino == this) {
+                tablero.almacenarMino = this;
+                tetrimino = new Tetrimino();
+            }
+            return false;
+        }
+        return true;
     }
-    return true
-  }
+    return false; // No se mueve si el juego está en pausa
+}
 
   moverArriba() {
     this.posición.y--;
@@ -111,10 +114,10 @@ class Tetrimino {
     return retorno;
   }
 
-  /* 
+  /*
      Esta función se encargará del procesamiento lógico del dibujado de
      este objeto
-     */
+  */
   dibujar() {
     push();
     fill(this.color);
@@ -161,7 +164,6 @@ class Tetrimino {
 }
 
 function crearMapeoBaseTetriminos() {
-  //Muy importante, no le pondan let, var, ni const de prefijo
   tetriminosBase = {
     Z: {
       color: "red",
@@ -173,7 +175,7 @@ function crearMapeoBaseTetriminos() {
       ],
     },
     S: {
-      color: "lime",
+      color: "Brown",
       mapa: [
         createVector(),
         createVector(1, -1),

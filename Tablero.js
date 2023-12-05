@@ -1,7 +1,3 @@
-/* 
-Se va a encargar de representar el modelo del tablero de juego, su nombre 
-empieza por una T mayúscula para identificar que es una clase y no una variable
-*/
 class Tablero {
   constructor() {
     this.columnas = 10;
@@ -13,10 +9,6 @@ class Tablero {
       MARGEN_TABLERO,
       MARGEN_TABLERO + 2*this.lado_celda
     );
-    /* 
-    minosAlmacenados es la variable que se encargará de representar los minos 
-    almacenados en el tablero
-    */
     this.minosAlmacenados = [];
     for (let fila = 0; fila < this.filas; fila++) {
       this.minosAlmacenados[fila] = [];
@@ -29,7 +21,6 @@ class Tablero {
   set almacenarMino(tetrimino) {
     for (const pmino of tetrimino.mapaTablero) {
       if (pmino.y < 0) {
-        //Juego términado
         tablero = new Tablero();
         tetrimino = new Tetrimino();
         lineas_hechas = 0;
@@ -72,21 +63,11 @@ class Tablero {
     }
   }
 
-  /* 
-  La coordenada es una transformación no lineal donde se aplica un
-  escalamiento (multiplicación) para el ajuste de las medidas y una
-  traslación (suma) para el ajuste de las posiciones.
-
-  En este caso, no usaremos rotaciones, no se necesita.
-  */
   coordenada(x, y) {
     return createVector(x, y).mult(this.lado_celda).add(this.posición);
   }
 
-  /* 
-  Se encargará del procesamiento lógico para el dibujado 
-  de este elemento 
-  */
+
   dibujar() {
     push();
     noStroke();
